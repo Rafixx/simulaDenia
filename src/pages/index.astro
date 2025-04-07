@@ -1,15 +1,66 @@
 ---
-const titulo = "¡Hola desde Astro! 🚀";
+import "../styles/global.css";
+
+const cursos = [
+  {
+    fecha: "15 de Abril 2025",
+    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia3",
+  },
+  {
+    fecha: "22 de Abril 2025",
+    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia4",
+  },
+  {
+    fecha: "29 de Abril 2025",
+    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia5",
+  },
+  {
+    fecha: "6 de Mayo 2025",
+    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia6",
+  },
+  {
+    fecha: "13 de Mayo 2025",
+    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia7",
+  },
+  {
+    fecha: "20 de Mayo 2025",
+    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia8",
+  },
+  {
+    fecha: "27 de Mayo 2025",
+    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia9",
+  },
+];
 ---
 
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{titulo}</title>
+    <title>Cursos disponibles</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body>
-    <h1>{titulo}</h1>
-    <p>Este es mi primer proyecto con Astro.</p>
+  <body class="bg-gray-100 font-sans">
+    <main class="max-w-3xl mx-auto py-12 px-6">
+      <h1 class="text-4xl font-bold text-blue-700 mb-8">
+        Cursos Disponibles 📅
+      </h1>
+      <ul class="space-y-4">
+        {
+          cursos.map((curso) => (
+            <li>
+              <a
+                href={curso.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 p-4 text-lg text-gray-700 hover:text-blue-600"
+              >
+                🗓️ {curso.fecha}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
   </body>
 </html>
