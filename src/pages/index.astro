@@ -1,36 +1,11 @@
 ---
 import "../styles/global.css";
+import cursos from "../data/cursos.json";
+import EkgAnimation from "../components/EkgAnimation.astro";
 
-const cursos = [
-  {
-    fecha: "15 de Abril 2025",
-    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia3",
-  },
-  {
-    fecha: "22 de Abril 2025",
-    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia4",
-  },
-  {
-    fecha: "29 de Abril 2025",
-    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia5",
-  },
-  {
-    fecha: "6 de Mayo 2025",
-    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia6",
-  },
-  {
-    fecha: "13 de Mayo 2025",
-    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia7",
-  },
-  {
-    fecha: "20 de Mayo 2025",
-    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia8",
-  },
-  {
-    fecha: "27 de Mayo 2025",
-    url: "https://www.inscribirme.com/simulacionrcpurgenciasdenia9",
-  },
-];
+const imgIco = "/public/favicon.webp";
+const imgURGDenia = "/public/URGDenia.webp";
+//  public/logoRCP.svg;
 ---
 
 <html lang="es">
@@ -42,20 +17,32 @@ const cursos = [
   </head>
   <body class="bg-gray-100 font-sans">
     <main class="max-w-3xl mx-auto py-12 px-6">
-      <h1 class="text-4xl font-bold text-blue-700 mb-8">
-        Cursos Disponibles 📅
-      </h1>
+      <div class="flex items-center gap-4">
+        <img
+          src={imgURGDenia}
+          alt="Urgencias Denia"
+          class="w-16 h-auto rounded-lg shadow-lg"
+        />
+        <h1 class="text-4xl font-bold text-blue-700">Cursos Disponibles</h1>
+        <EkgAnimation />
+      </div>
+
       <ul class="space-y-4">
         {
           cursos.map((curso) => (
-            <li>
+            <li class="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200">
               <a
                 href={curso.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 p-4 text-lg text-gray-700 hover:text-blue-600"
+                class="flex items-center bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 p-4 text-lg text-gray-700 hover:text-blue-600"
               >
-                🗓️ {curso.fecha}
+                <img
+                  src={imgIco}
+                  alt={"Urgencias Denia"}
+                  class="w-12 h-auto mr-3 rounded-lg hover:w-14 transition-all duration-200"
+                />
+                {curso.fecha}
               </a>
             </li>
           ))
