@@ -1,43 +1,41 @@
 import type { SectionMeta } from './types';
+import { useTranslations } from '../utils/languageStore';
 
-export const sections: SectionMeta[] = [
-  {
-    key: "rcp",
-    title: "Sección RCP",
-    description: "Cursos de Reanimación Cardiopulmonar básica y avanzada",
-    imageUrl: "/1.webp",
-    dataKey: "SECCIÓN RCP",
-    icon: "heart"
-  },
-  {
-    key: "acreditados",
-    title: "Talleres Acreditados",
-    description: "Talleres especializados acreditados por organismos oficiales",
-    imageUrl: "/2.webp",
-    dataKey: "SECCIÓN TALLERES ACREDITADOS",
-    icon: "award"
-  },
-  {
-    key: "talleres",
-    title: "Talleres",
-    description: "Talleres de formación complementaria y especializada",
-    imageUrl: "/3.webp",
-    dataKey: "SECCIÓN TALLERES",
-    icon: "book"
-  },
-  {
-    key: "enfermeria",
-    title: "Talleres Enfermería",
-    description: "Formación especializada dirigida al personal de enfermería",
-    imageUrl: "/4.webp",
-    dataKey: "SECCIÓN TALLERES ENFERMERÍA",
-    icon: "user"
-  },
-  // {
-  //   key: "info",
-  //   title: "Información",
-  //   description: "Información general sobre nuestros cursos y servicios",
-  //   imageUrl: "/URGDenia.webp",
-  //   icon: "info"
-  // }
-];
+export function getSections(): SectionMeta[] {
+  const t = useTranslations();
+  
+  return [
+    {
+      key: "rcp",
+      title: t.sections.rcp.title,
+      description: t.sections.rcp.description,
+      imageUrl: "/1.webp",
+      dataKey: "SECCIÓN RCP",
+      icon: "heart"
+    },
+    {
+      key: "acreditados",
+      title: t.sections.acreditados.title,
+      description: t.sections.acreditados.description,
+      imageUrl: "/2.webp",
+      dataKey: "SECCIÓN TALLERES ACREDITADOS",
+      icon: "award"
+    },
+    {
+      key: "talleres",
+      title: t.sections.talleres.title,
+      description: t.sections.talleres.description,
+      imageUrl: "/3.webp",
+      dataKey: "SECCIÓN TALLERES",
+      icon: "book"
+    },
+    {
+      key: "enfermeria",
+      title: t.sections.enfermeria.title,
+      description: t.sections.enfermeria.description,
+      imageUrl: "/4.webp",
+      dataKey: "SECCIÓN TALLERES ENFERMERÍA",
+      icon: "user"
+    }
+  ];
+}

@@ -2,30 +2,45 @@
 import Layout from "../layouts/Layout.astro";
 import Sidebar from "../components/Sidebar.astro";
 import Section from "../components/Section.astro";
+import LanguageToggle from "../components/LanguageToggle.astro";
 import type { CoursesData } from "../data/types";
-import { sections } from "../data/sections.config";
+import { getSections } from "../data/sections.config";
+import { useTranslations } from "../utils/languageStore";
 import courses from "../data/courses.json";
 import EkgAnimation from "../components/EkgAnimation.astro";
 
 // Cast del JSON importado al tipo correcto
 const coursesData = courses as CoursesData;
+const sections = getSections();
+const t = useTranslations();
 ---
 
-<Layout title="Cursos de Formación - Urgències Hospital de Dénia">
+<Layout title={`Cursos de Formación - ${t.mainTitle}`}>
   <Sidebar sections={sections} />
 
   <!-- Contenido principal con margen para el sidebar -->
   <main class="lg:ml-20 mb-20 lg:mb-0 min-h-screen">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <!-- Header principal -->
-      <header class="text-center mb-12 flex-column items-center justify-center">
+      <header
+        class="text-center mb-12 flex-column items-center justify-center relative"
+      >
+        <!-- Selector de idioma en la esquina superior derecha -->
+        <div class="absolute top-0 right-0">
+          <LanguageToggle />
+        </div>
+
         <h1
           class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-700 to-red-700 bg-clip-text text-transparent mb-4"
+          data-i18n="mainTitle"
         >
-          Urgències Hospital de Dénia
+          {t.mainTitle}
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Formación especializada para profesionales de la salud
+        <p
+          class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+          data-i18n="mainSubtitle"
+        >
+          {t.mainSubtitle}
         </p>
       </header>
 

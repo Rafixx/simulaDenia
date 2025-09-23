@@ -10,7 +10,10 @@ const { meta, sectionDescription } = Astro.props;
 ---
 
 <header class="mb-6">
-  <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+  <h2
+    class="text-3xl font-bold text-gray-900 dark:text-white mb-6"
+    data-i18n={`sections.${meta.key}.title`}
+  >
     {meta.title}
   </h2>
 
@@ -32,7 +35,10 @@ const { meta, sectionDescription } = Astro.props;
       <!-- Contenido derecha -->
       <div class="md:w-2/3 lg:w-3/5 p-6 flex flex-col justify-center">
         <div class="mb-4">
-          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p
+            class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed"
+            data-i18n={`sections.${meta.key}.description`}
+          >
             {meta.description}
           </p>
         </div>

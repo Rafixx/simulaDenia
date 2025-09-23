@@ -1,12 +1,14 @@
 ---
 import type { SectionWithGroups } from "../data/types";
 import CourseList from "./CourseList.astro";
+import { useTranslations } from "../utils/languageStore";
 
 interface Props {
   groups: SectionWithGroups;
 }
 
 const { groups } = Astro.props;
+const t = useTranslations();
 
 // Filtrar solo las propiedades que contienen arrays de cursos (excluyendo "Descripción")
 const groupEntries = Object.entries(groups).filter(
@@ -28,8 +30,8 @@ const groupEntries = Object.entries(groups).filter(
                 <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full">
                   {Array.isArray(items) ? items.length : 0}{" "}
                   {Array.isArray(items) && items.length === 1
-                    ? "curso"
-                    : "cursos"}
+                    ? t.courseCount.singular
+                    : t.courseCount.plural}
                 </span>
                 <svg
                   class="w-4 h-4 text-gray-500 transition-transform group-open/nested:rotate-180"
@@ -56,7 +58,7 @@ const groupEntries = Object.entries(groups).filter(
     </div>
   ) : (
     <p class="text-gray-500 dark:text-gray-400 italic text-center py-8">
-      No hay talleres acreditados disponibles en este momento.
+      {t.noCourses}
     </p>
   )
 }
