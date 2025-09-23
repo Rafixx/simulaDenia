@@ -1,51 +1,47 @@
 ---
-import "../styles/global.css";
-import cursos from "../data/cursos.json";
+import Layout from "../layouts/Layout.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Section from "../components/Section.astro";
+import type { CoursesData } from "../data/types";
+import { sections } from "../data/sections.config";
+import courses from "../data/courses.json";
 import EkgAnimation from "../components/EkgAnimation.astro";
 
-const imgIco = "/favicon.webp";
-const imgURGDenia = "/URGDenia.webp";
-//  public/logoRCP.svg;
+// Cast del JSON importado al tipo correcto
+const coursesData = courses as CoursesData;
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cursos disponibles</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  </head>
-  <body class="bg-gray-100 font-sans">
-    <main class="max-w-3xl mx-auto py-12 px-6">
-      <h1 class="text-center text-2xl font-bold text-red-700">
-        Urgències Hospital de Dénia
-      </h1>
-      <div class="flex flex-col sm:flex-row items-center gap-4">
-        <h1 class="text-4xl font-bold text-blue-700">Cursos disponibles</h1>
-        <EkgAnimation />
-      </div>
+<Layout title="Cursos de Formación - Urgències Hospital de Dénia">
+  <Sidebar sections={sections} />
 
-      <ul class="space-y-4">
+  <!-- Contenido principal con margen para el sidebar -->
+  <main class="lg:ml-20 mb-20 lg:mb-0 min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <!-- Header principal -->
+      <header class="text-center mb-12 flex-column items-center justify-center">
+        <h1
+          class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-700 to-red-700 bg-clip-text text-transparent mb-4"
+        >
+          Urgències Hospital de Dénia
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Formación especializada para profesionales de la salud
+        </p>
+      </header>
+
+      <!-- Renderizar todas las secciones -->
+      <div class="space-y-16">
         {
-          cursos.map((curso) => (
-            <li class="bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200">
-              <a
-                href={curso.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex items-center bg-white rounded-lg shadow hover:shadow-md transition-shadow duration-200 p-4 text-lg text-gray-700 hover:text-blue-600"
-              >
-                <img
-                  src={imgIco}
-                  alt={"Urgencias Denia"}
-                  class="w-12 h-auto mr-3 rounded-lg hover:w-14 transition-all duration-200"
-                />
-                {curso.fecha}
-              </a>
-            </li>
+          sections.map((sectionMeta) => (
+            <Section
+              meta={sectionMeta}
+              data={
+                sectionMeta.dataKey ? coursesData[sectionMeta.dataKey] : null
+              }
+            />
           ))
         }
-      </ul>
-    </main>
-  </body>
-</html>
+      </div>
+    </div>
+  </main>
+</Layout>

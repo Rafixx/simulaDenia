@@ -1,0 +1,93 @@
+---
+import type { SectionMeta, CoursesData, SectionFlat, SectionWithGroups } from '../data/types';
+import SectionHeader from './SectionHeader.astro';
+import CourseList from './CourseList.astro';
+import AccreditedGroup from './AccreditedGroup.astro';
+
+interface Props {
+  meta: SectionMeta;
+  data?: CoursesData[keyof CoursesData] | null;
+}
+
+const { meta, data } = Astro.props;
+
+// Función para verificar si los datos son un objeto con grupos
+function isGroupedData(data: any): data is SectionWithGroups {
+  return data && 
+         typeof data === 'object' && 
+         !Array.isArray(data) && 
+         'Descripción' in data && 
+         typeof data.Descripción === 'string' &&
+         Object.keys(data).some(key => key !== 'Descripción' && Array.isArray(data[key]));
+}
+
+// Función para verificar si los datos son una sección plana
+function isFlatData(data: any): data is SectionFlat {
+  return data && 
+         typeof data === 'object' && 
+         'Descripción' in data && 
+         typeof data.Descripción === 'string' &&
+         'cursos' in data &&
+         Array.isArray(data.cursos);
+}
+
+// Extraer la descripción de la sección
+const sectionDescription = data && typeof data === 'object' && 'Descripción' in data ? data.Descripción : undefined;
+---
+
+<section id={meta.key} class="mb-16 scroll-mt-8">
+  <SectionHeader meta={meta} sectionDescription={sectionDescription} />
+  
+  {meta.key === "info" ? (
+    <!-- Sección informativa sin datos -->
+    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <h3 class="text-xl font-semibold mb-4">Información General</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Bienvenido a nuestra plataforma de cursos de formación médica. Ofrecemos una amplia gama de programas formativos 
+          diseñados para profesionales de la salud, desde cursos básicos de RCP hasta talleres especializados acreditados.
+        </p>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
+          <li>Formación impartida por profesionales cualificados</li>
+          <li>Certificaciones oficiales reconocidas</li>
+          <li>Metodología práctica y actualizada</li>
+          <li>Grupos reducidos para mejor aprendizaje</li>
+        </ul>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-6">
+          Para más información sobre nuestros cursos, no dudes en contactarnos.
+        </p>
+      </div>
+    </div>
+  ) : (
+    <!-- Sección con datos de cursos -->
+    <details class="group">
+      <summary class="cursor-pointer list-none p-4 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+        <div class="flex items-center justify-between">
+          <span class="text-lg font-medium text-gray-900 dark:text-white">
+            Ver cursos disponibles
+          </span>
+          <svg 
+            class="w-5 h-5 text-gray-500 transition-transform group-open:rotate-180" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </div>
+      </summary>
+      
+      <div class="mt-4 p-4 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700">
+        {data && isGroupedData(data) ? (
+          <AccreditedGroup groups={data} />
+        ) : data && isFlatData(data) ? (
+          <CourseList items={(data as SectionFlat).cursos} />
+        ) : (
+          <p class="text-gray-500 dark:text-gray-400 italic text-center py-8">
+            No hay cursos disponibles en este momento.
+          </p>
+        )}
+      </div>
+    </details>
+  )}
+</section>

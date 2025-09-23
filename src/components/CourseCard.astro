@@ -1,0 +1,58 @@
+---
+import type { CourseItem } from "../data/types";
+
+interface Props {
+  item: CourseItem;
+}
+
+const { item } = Astro.props;
+---
+
+<article
+  class="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-4 hover:shadow-lg transition-shadow duration-300 border border-gray-200 dark:border-gray-700 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2"
+>
+  <header class="mb-3">
+    <h4
+      class="text-lg font-semibold text-gray-900 dark:text-white mb-1"
+      id={`course-${item.Title.replace(/\s+/g, "-").toLowerCase()}`}
+    >
+      {item.Title}
+    </h4>
+    <p class="text-sm text-gray-600 dark:text-gray-300">
+      <span class="font-medium">Dirigido a:</span>
+      {item.For}
+    </p>
+  </header>
+
+  <div class="mb-4">
+    <p class="text-sm text-gray-500 dark:text-gray-400">
+      <span class="font-medium">Fecha:</span>
+      {item.Date}
+    </p>
+  </div>
+
+  <footer>
+    <a
+      href={item.Link}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center justify-center w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-medium text-sm rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      aria-describedby={`course-${item.Title.replace(/\s+/g, "-").toLowerCase()}`}
+    >
+      <svg
+        class="w-4 h-4 mr-2"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+        ></path>
+      </svg>
+      Inscribirme
+    </a>
+  </footer>
+</article>
