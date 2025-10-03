@@ -25,7 +25,7 @@ export function getSections(): SectionMeta[] {
       key: "talleres",
       title: t.sections.talleres.title,
       description: t.sections.talleres.description,
-      imageUrl: "/3.webp",
+      imageUrl: "/7.webp",
       dataKey: "SECCIÓN TALLERES",
       icon: "book"
     },
