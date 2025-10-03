@@ -161,11 +161,11 @@ const t = useTranslations();
         }
 
         setLanguage(lang) {
-          console.log('Cambiando idioma a:', lang);
+          console.log("Cambiando idioma a:", lang);
           this.currentLanguage = lang;
           localStorage.setItem("language", lang);
           this.updateUI();
-          console.log('Idioma cambiado y UI actualizada');
+          console.log("Idioma cambiado y UI actualizada");
         }
 
         toggleLanguage() {
@@ -185,12 +185,12 @@ const t = useTranslations();
         }
 
         updateUI() {
-          console.log('Actualizando UI con idioma:', this.currentLanguage);
-          
+          console.log("Actualizando UI con idioma:", this.currentLanguage);
+
           // Actualizar elementos con data-i18n
           const elements = document.querySelectorAll("[data-i18n]");
-          console.log('Elementos encontrados con data-i18n:', elements.length);
-          
+          console.log("Elementos encontrados con data-i18n:", elements.length);
+
           elements.forEach((element) => {
             const key = element.getAttribute("data-i18n");
             const translation = this.getTranslation(key);
@@ -284,7 +284,7 @@ const t = useTranslations();
 
         init() {
           // Si el DOM ya está listo, aplicar traducciones inmediatamente
-          if (document.readyState === 'loading') {
+          if (document.readyState === "loading") {
             document.addEventListener("DOMContentLoaded", () => {
               this.updateUI();
             });
