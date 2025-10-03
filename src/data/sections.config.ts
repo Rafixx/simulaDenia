@@ -33,7 +33,7 @@ export function getSections(): SectionMeta[] {
       key: "enfermeria",
       title: t.sections.enfermeria.title,
       description: t.sections.enfermeria.description,
-      imageUrl: "/4.webp",
+      imageUrl: "/8.webp",
       dataKey: "SECCIÓN TALLERES ENFERMERÍA",
       icon: "user"
     }
