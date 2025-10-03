@@ -103,8 +103,8 @@ export const translations: Record<Language, Translation> = {
     
     noCourses: "No hay cursos disponibles en este momento.",
     courseCount: {
-      singular: "curso",
-      plural: "cursos"
+      singular: "edición",
+      plural: "ediciones"
     },
     
     courseLabels: {
@@ -159,8 +159,8 @@ export const translations: Record<Language, Translation> = {
     
     noCourses: "No hi ha cursos disponibles en aquest moment.",
     courseCount: {
-      singular: "curs",
-      plural: "cursos"
+      singular: "edició",
+      plural: "edicions"
     },
     
     courseLabels: {

@@ -161,9 +161,11 @@ const t = useTranslations();
         }
 
         setLanguage(lang) {
+          console.log('Cambiando idioma a:', lang);
           this.currentLanguage = lang;
           localStorage.setItem("language", lang);
           this.updateUI();
+          console.log('Idioma cambiado y UI actualizada');
         }
 
         toggleLanguage() {
@@ -183,12 +185,18 @@ const t = useTranslations();
         }
 
         updateUI() {
+          console.log('Actualizando UI con idioma:', this.currentLanguage);
+          
           // Actualizar elementos con data-i18n
-          document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const elements = document.querySelectorAll("[data-i18n]");
+          console.log('Elementos encontrados con data-i18n:', elements.length);
+          
+          elements.forEach((element) => {
             const key = element.getAttribute("data-i18n");
             const translation = this.getTranslation(key);
 
             if (translation) {
+              console.log(`Traduciendo ${key}:`, translation);
               element.textContent = translation;
             }
           });
@@ -275,11 +283,15 @@ const t = useTranslations();
         }
 
         init() {
-          // Configurar el toggle button
-          document.addEventListener("DOMContentLoaded", () => {
-            // Aplicar traducciones iniciales
+          // Si el DOM ya está listo, aplicar traducciones inmediatamente
+          if (document.readyState === 'loading') {
+            document.addEventListener("DOMContentLoaded", () => {
+              this.updateUI();
+            });
+          } else {
+            // DOM ya está listo, aplicar inmediatamente
             this.updateUI();
-          });
+          }
         }
       }
 
