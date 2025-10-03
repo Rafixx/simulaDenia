@@ -21,14 +21,18 @@ const t = useTranslations();
       {item.Title}
     </h4>
     <p class="text-sm text-gray-600 dark:text-gray-300">
-      <span class="font-medium">{t.courseLabels.for}</span>
+      <span class="font-medium" data-i18n="courseLabels.for"
+        >{t.courseLabels.for}</span
+      >
       {item.For}
     </p>
   </header>
 
   <div class="mb-4">
     <p class="text-sm text-gray-500 dark:text-gray-400">
-      <span class="font-medium">{t.courseLabels.date}</span>
+      <span class="font-medium" data-i18n="courseLabels.date"
+        >{t.courseLabels.date}</span
+      >
       {item.Date}
     </p>
   </div>
@@ -54,7 +58,7 @@ const t = useTranslations();
           d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
         ></path>
       </svg>
-      {t.enrollButton}
+      <span data-i18n="enrollButton">{t.enrollButton}</span>
     </a>
   </footer>
 </article>

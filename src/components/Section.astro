@@ -44,16 +44,16 @@ const sectionDescription = data && typeof data === 'object' && 'Descripción' in
     <!-- Sección informativa sin datos -->
     <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
       <div class="prose prose-lg dark:prose-invert max-w-none">
-        <h3 class="text-xl font-semibold mb-4">{t.generalInfo.title}</h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
+        <h3 class="text-xl font-semibold mb-4" data-i18n="generalInfo.title">{t.generalInfo.title}</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="generalInfo.welcome">
           {t.generalInfo.welcome}
         </p>
-        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
+        <ul id="info-features" class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
           {t.generalInfo.features.map((feature) => (
             <li>{feature}</li>
           ))}
         </ul>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mt-6">
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-6" data-i18n="generalInfo.contact">
           {t.generalInfo.contact}
         </p>
       </div>
@@ -63,7 +63,7 @@ const sectionDescription = data && typeof data === 'object' && 'Descripción' in
     <details class="group">
       <summary class="cursor-pointer list-none p-4 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
         <div class="flex items-center justify-between">
-          <span class="text-lg font-medium text-gray-900 dark:text-white">
+          <span class="text-lg font-medium text-gray-900 dark:text-white" data-i18n="viewCoursesButton">
             {t.viewCoursesButton}
           </span>
           <svg 
@@ -83,7 +83,7 @@ const sectionDescription = data && typeof data === 'object' && 'Descripción' in
         ) : data && isFlatData(data) ? (
           <CourseList items={(data as SectionFlat).cursos} />
         ) : (
-          <p class="text-gray-500 dark:text-gray-400 italic text-center py-8">
+          <p class="text-gray-500 dark:text-gray-400 italic text-center py-8" data-i18n="noCourses">
             {t.noCourses}
           </p>
         )}

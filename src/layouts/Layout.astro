@@ -60,12 +60,17 @@ const t = useTranslations();
           },
 
           generalInfo: {
-            duration: "Duración",
-            hours: "horas",
-            location: "Lugar",
-            requirements: "Requisitos",
-            certification: "Certificación",
-            contact: "Contacto",
+            title: "Información General",
+            welcome:
+              "Bienvenido a nuestra plataforma de cursos de formación médica. Ofrecemos una amplia gama de programas formativos diseñados para profesionales de la salud, desde cursos básicos de RCP hasta talleres especializados acreditados.",
+            features: [
+              "Formación impartida por profesionales cualificados",
+              "Certificaciones oficiales reconocidas",
+              "Metodología práctica y actualizada",
+              "Grupos reducidos para mejor aprendizaje",
+            ],
+            contact:
+              "Para más información sobre nuestros cursos, no dudes en contactarnos.",
           },
 
           noCourses: "No hay cursos disponibles en este momento.",
@@ -73,6 +78,12 @@ const t = useTranslations();
           courseCount: {
             singular: "curso",
             plural: "cursos",
+          },
+
+          courseLabels: {
+            title: "Curso",
+            for: "Dirigido a:",
+            date: "Fecha:",
           },
         },
 
@@ -111,12 +122,17 @@ const t = useTranslations();
           },
 
           generalInfo: {
-            duration: "Duració",
-            hours: "hores",
-            location: "Lloc",
-            requirements: "Requisits",
-            certification: "Certificació",
-            contact: "Contacte",
+            title: "Informació General",
+            welcome:
+              "Benvingut a la nostra plataforma de cursos de formació mèdica. Oferim una àmplia gamma de programes formatius dissenyats per a professionals de la salut, des de cursos bàsics de RCP fins a tallers especialitzats acreditats.",
+            features: [
+              "Formació impartida per professionals qualificats",
+              "Certificacions oficials reconegudes",
+              "Metodologia pràctica i actualitzada",
+              "Grups reduïts per a millor aprenentatge",
+            ],
+            contact:
+              "Per a més informació sobre els nostres cursos, no dubtes en contactar-nos.",
           },
 
           noCourses: "No hi ha cursos disponibles en aquest moment.",
@@ -124,6 +140,12 @@ const t = useTranslations();
           courseCount: {
             singular: "curs",
             plural: "cursos",
+          },
+
+          courseLabels: {
+            title: "Curs",
+            for: "Dirigit a:",
+            date: "Data:",
           },
         },
       };
@@ -171,6 +193,9 @@ const t = useTranslations();
             }
           });
 
+          // Actualizar las features de información general
+          this.updateInfoFeatures();
+
           // Actualizar elementos específicos del sidebar
           this.updateSidebar();
 
@@ -198,6 +223,18 @@ const t = useTranslations();
           const titleElement = document.querySelector("title");
           if (titleElement) {
             titleElement.textContent = `Cursos de Formación - ${this.getTranslation("mainTitle")}`;
+          }
+        }
+
+        updateInfoFeatures() {
+          const featuresContainer = document.getElementById("info-features");
+          if (featuresContainer) {
+            const features = this.getTranslation("generalInfo.features");
+            if (Array.isArray(features)) {
+              featuresContainer.innerHTML = features
+                .map((feature) => `<li>${feature}</li>`)
+                .join("");
+            }
           }
         }
 
