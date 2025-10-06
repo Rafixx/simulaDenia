@@ -27,7 +27,7 @@ const { meta, sectionDescription } = Astro.props;
         <img
           src={meta.imageUrl}
           alt={`Imagen de ${meta.title}`}
-          class="w-full h-48 md:h-full object-cover hover:scale-105 transition-transform duration-300"
+          class="w-full h-90 sm:h-80 md:h-full object-cover hover:scale-105 transition-transform duration-300"
           loading="lazy"
         />
       </div>
@@ -36,7 +36,7 @@ const { meta, sectionDescription } = Astro.props;
       <div class="md:w-2/3 lg:w-3/5 p-6 flex flex-col justify-center">
         <div class="mb-4">
           <p
-            class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed"
+            class="text-xl font-bold text-gray-600 dark:text-gray-300 leading-relaxed"
             data-i18n={`sections.${meta.key}.description`}
           >
             {meta.description}
@@ -46,7 +46,7 @@ const { meta, sectionDescription } = Astro.props;
         {
           sectionDescription && (
             <div class="pt-4 border-t border-gray-200 dark:border-gray-600">
-              <p class="text-sm text-gray-500 dark:text-gray-400 italic">
+              <p class="text-md text-gray-500 dark:text-gray-400 italic">
                 {sectionDescription}
               </p>
             </div>

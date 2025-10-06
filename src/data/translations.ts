@@ -68,20 +68,20 @@ export const translations: Record<Language, Translation> = {
     
     sections: {
       rcp: {
-        title: "Sección RCP",
-        description: "Cursos de Reanimación Cardiopulmonar básica y avanzada"
+        title: "ENTRENAMIENTO DE EQUIPOS EN RCP",
+        description: "Aprende con tu equipo la RCP con casos simulados"
       },
       acreditados: {
-        title: "Talleres Acreditados",
-        description: "Talleres especializados acreditados por organismos oficiales"
+        title: "1ª EDICIÓN TALLERES MULTIDISCIPLINARES DE HABILIDADES EN ATENCIÓN PACIENTE GRAVE",
+        description: "Aprende con tu equipo y consigue tus créditos oficiales"
       },
       talleres: {
-        title: "Talleres",
-        description: "Talleres de formación complementaria y especializada"
+        title: "ECOGRAFÍA EN URGENCIAS",
+        description: "Mejorando nuestras competencias en ecografía"
       },
       enfermeria: {
-        title: "Talleres Enfermería",
-        description: "Formación especializada dirigida al personal de enfermería"
+        title: "TALLERES ESPECÍFICOS TCAEs y ENFERMERÍA",
+        description: "Aprende, repasa y mejora tus técnicas de enfermería"
       },
       info: {
         title: "Información",
@@ -124,20 +124,20 @@ export const translations: Record<Language, Translation> = {
     
     sections: {
       rcp: {
-        title: "Secció RCP",
-        description: "Cursos de Reanimació Cardiopulmonar bàsica i avançada"
+        title: "ENTRENAMENT D'EQUIPS EN RCP",
+        description: "Aprén amb el teu equip la RCP amb casos simulats"
       },
       acreditados: {
-        title: "Tallers Acreditats",
-        description: "Tallers especialitzats acreditats per organismes oficials"
+        title: "1a EDICIÓ TALLERS MULTIDISCIPLINARS D'HABILITATS EN ATENCIÓ PACIENT GREU",
+        description: "Aprén amb el teu equip i aconseguix els teus crèdits oficials"
       },
       talleres: {
-        title: "Tallers",
-        description: "Tallers de formació complementària i especialitzada"
+        title: "ECOGRAFIA EN URGÈNCIES",
+        description: "Millorant les nostres competències en ecografia"
       },
       enfermeria: {
-        title: "Tallers Infermeria",
-        description: "Formació especialitzada dirigida al personal d'infermeria"
+        title: "TALLERS ESPECÍFICS TCAEs i INFERMERIA",
+        description: "Aprén, repassa i millora les teues tècniques d'infermeria"
       },
       info: {
         title: "Informació",
@@ -157,7 +157,7 @@ export const translations: Record<Language, Translation> = {
       contact: "Per a més informació sobre els nostres cursos, no dubtes en contactar-nos."
     },
     
-    noCourses: "No hi ha cursos disponibles en aquest moment.",
+    noCourses: "No hi ha cursos disponibles en este moment.",
     courseCount: {
       singular: "edició",
       plural: "edicions"
