@@ -1,0 +1,199 @@
+---
+// Este componente manejará el toggle de idioma con JavaScript del lado cliente
+import flagESP from "../assets/flag_ESP.svg";
+import flagVLC from "../assets/flag_VLC.svg";
+---
+
+<div id="language-toggle" class="fixed top-4 right-4 z-50">
+  <button
+    id="toggle-btn"
+    class="flex items-center space-x-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+    title="Cambiar idioma / Canviar idioma"
+  >
+    <!-- Bandera del idioma actual -->
+    <img
+      id="current-flag"
+      src={flagESP.src}
+      alt="Bandera actual"
+      class="w-4 h-3 rounded-sm"
+    />
+    <span
+      id="current-lang"
+      class="text-sm font-medium text-gray-700 dark:text-gray-300">ES</span
+    >
+    <svg
+      class="w-3 h-3 text-gray-500 dark:text-gray-400"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <!-- Dropdown menu -->
+  <div
+    id="language-menu"
+    class="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible transition-all duration-200 transform scale-95"
+  >
+    <div class="p-1">
+      <button
+        data-lang="es"
+        class="w-full flex items-center px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors"
+      >
+        <img src={flagESP.src} alt="Español" class="w-4 h-3 mr-2 rounded-sm" />
+        Castellano
+      </button>
+      <button
+        data-lang="va"
+        class="w-full flex items-center px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md transition-colors"
+      >
+        <img src={flagVLC.src} alt="Valencià" class="w-4 h-3 mr-2 rounded-sm" />
+        Valencià
+      </button>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ flagESP: flagESP.src, flagVLC: flagVLC.src }}>
+  // Las rutas de las banderas están disponibles como variables
+  window.flagESP = flagESP;
+  window.flagVLC = flagVLC;
+</script>
+
+<script>
+  import { languageStore } from "../utils/languageStore";
+
+  // Acceder a las rutas de las banderas desde las variables globales
+  declare global {
+    interface Window {
+      flagESP: string;
+      flagVLC: string;
+    }
+  }
+
+  class LanguageToggle {
+    private toggleBtn: HTMLElement;
+    private languageMenu: HTMLElement;
+    private currentLangSpan: HTMLElement;
+    private isOpen = false;
+
+    constructor() {
+      this.toggleBtn = document.getElementById("toggle-btn")!;
+      this.languageMenu = document.getElementById("language-menu")!;
+      this.currentLangSpan = document.getElementById("current-lang")!;
+
+      this.init();
+    }
+
+    private init() {
+      // Configurar estado inicial
+      this.updateCurrentLanguage();
+
+      // Event listeners
+      this.toggleBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        this.toggleMenu();
+      });
+
+      // Listeners para las opciones de idioma
+      const langButtons = this.languageMenu.querySelectorAll("[data-lang]");
+      langButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          const lang = (e.currentTarget as HTMLElement).getAttribute("data-lang") as
+            | "es"
+            | "va";
+          this.setLanguage(lang);
+        });
+      });
+
+      // Cerrar menú al hacer click fuera
+      document.addEventListener("click", () => {
+        this.closeMenu();
+      });
+
+      // Suscribirse a cambios de idioma
+      languageStore.subscribe((lang) => {
+        this.updateCurrentLanguage();
+        // Usar nuestro sistema de traducción dinámico en lugar de recargar
+        if ((window as any).i18n) {
+          (window as any).i18n.setLanguage(lang);
+        }
+      });
+    }
+
+    private toggleMenu() {
+      if (this.isOpen) {
+        this.closeMenu();
+      } else {
+        this.openMenu();
+      }
+    }
+
+    private openMenu() {
+      this.languageMenu.classList.remove("opacity-0", "invisible", "scale-95");
+      this.languageMenu.classList.add("opacity-100", "visible", "scale-100");
+      this.isOpen = true;
+    }
+
+    private closeMenu() {
+      this.languageMenu.classList.add("opacity-0", "invisible", "scale-95");
+      this.languageMenu.classList.remove("opacity-100", "visible", "scale-100");
+      this.isOpen = false;
+    }
+
+    private setLanguage(lang: "es" | "va") {
+      languageStore.setLanguage(lang);
+      this.closeMenu();
+    }
+
+    private updateCurrentLanguage() {
+      const lang = languageStore.getLanguage();
+      this.currentLangSpan.textContent = lang.toUpperCase();
+
+      // Actualizar la bandera en el botón principal
+      const currentFlag = document.getElementById(
+        "current-flag"
+      ) as HTMLImageElement;
+      if (currentFlag) {
+        if (lang === "es") {
+          currentFlag.src = window.flagESP;
+          currentFlag.alt = "Español";
+        } else if (lang === "va") {
+          currentFlag.src = window.flagVLC;
+          currentFlag.alt = "Valencià";
+        }
+      }
+
+      // Actualizar estado activo en el menú
+      const langButtons = this.languageMenu.querySelectorAll("[data-lang]");
+      langButtons.forEach((button) => {
+        const btnLang = button.getAttribute("data-lang");
+        if (btnLang === lang) {
+          button.classList.add(
+            "bg-blue-50",
+            "dark:bg-blue-900/20",
+            "text-blue-700",
+            "dark:text-blue-400"
+          );
+        } else {
+          button.classList.remove(
+            "bg-blue-50",
+            "dark:bg-blue-900/20",
+            "text-blue-700",
+            "dark:text-blue-400"
+          );
+        }
+      });
+    }
+  }
+
+  // Inicializar cuando el DOM esté listo
+  document.addEventListener("DOMContentLoaded", () => {
+    new LanguageToggle();
+  });
+</script>
