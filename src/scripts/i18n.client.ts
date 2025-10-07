@@ -48,7 +48,6 @@ class I18nClient {
     
     // Actualizar elementos con data-i18n
     const elements = document.querySelectorAll('[data-i18n]');
-    console.log('Elementos encontrados con data-i18n:', elements.length);
     
     elements.forEach(element => {
       const key = element.getAttribute('data-i18n');
