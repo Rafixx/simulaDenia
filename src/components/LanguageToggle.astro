@@ -104,7 +104,7 @@ import flagVLC from "../assets/flag_VLC.svg";
       const langButtons = this.languageMenu.querySelectorAll("[data-lang]");
       langButtons.forEach((button) => {
         button.addEventListener("click", (e) => {
-          const lang = (e.target as HTMLElement).getAttribute("data-lang") as
+          const lang = (e.currentTarget as HTMLElement).getAttribute("data-lang") as
             | "es"
             | "va";
           this.setLanguage(lang);
