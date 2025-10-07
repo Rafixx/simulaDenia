@@ -45,7 +45,6 @@ class I18nClient {
   }
 
   updateUI() {
-    console.log('Actualizando UI con idioma:', this.currentLanguage);
     
     // Actualizar elementos con data-i18n
     const elements = document.querySelectorAll('[data-i18n]');
