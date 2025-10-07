@@ -26,7 +26,6 @@ class I18nClient {
     this.currentLanguage = lang;
     localStorage.setItem('language', lang);
     this.updateUI();
-    console.log('Idioma cambiado y UI actualizada');
   }
 
   toggleLanguage(): void {
