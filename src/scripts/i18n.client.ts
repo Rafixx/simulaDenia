@@ -23,7 +23,6 @@ class I18nClient {
   }
 
   setLanguage(lang: Language): void {
-    console.log('Cambiando idioma a:', lang);
     this.currentLanguage = lang;
     localStorage.setItem('language', lang);
     this.updateUI();
