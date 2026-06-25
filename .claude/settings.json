@@ -1,0 +1,23 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // empty' | { read -r f; [[ \"$f\" =~ \\.(ts|astro|css)$ ]] && npx prettier --write \"$f\" 2>/dev/null || true; }",
+            "timeout": 30,
+            "statusMessage": "Formatting..."
+          },
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // empty' | { read -r f; [[ \"$f\" =~ \\.(ts|astro)$ ]] && npx astro check || true; }",
+            "timeout": 60,
+            "statusMessage": "Checking types..."
+          }
+        ]
+      }
+    ]
+  }
+}

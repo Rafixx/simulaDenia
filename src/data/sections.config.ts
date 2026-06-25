@@ -9,7 +9,7 @@ export function getSections(): SectionMeta[] {
       key: "rcp",
       title: t.sections.rcp.title,
       description: t.sections.rcp.description,
-      imageUrl: "/1.webp",
+      imageUrl: "/1-verano.webp",
       dataKey: "SECCIÓN RCP",
       icon: "heart"
     },
