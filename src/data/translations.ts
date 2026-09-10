@@ -16,6 +16,10 @@ export interface Translation {
       title: string;
       description: string;
     };
+    traumaGrave: {
+      title: string;
+      description: string;
+    };
     acreditados: {
       title: string;
       description: string;
@@ -71,6 +75,10 @@ export const translations: Record<Language, Translation> = {
       rcp: {
         title: 'ENTRENAMIENTO DE EQUIPOS EN RCP',
         description: '¡Practica la RCP!',
+      },
+      traumaGrave: {
+        title: 'ENTRENAMIENTO DE EQUIPOS EN TRAUMA GRAVE',
+        description: '¡Entrenemos juntos la atención al trauma grave!',
       },
       acreditados: {
         title:
@@ -132,9 +140,13 @@ export const translations: Record<Language, Translation> = {
         title: "ENTRENAMENT D'EQUIPS EN RCP",
         description: 'Aprén amb el teu equip la RCP amb casos simulats',
       },
+      traumaGrave: {
+        title: "ENTRENAMENT D'EQUIPS EN TRAUMA GREU",
+        description: "Entrenem junts l'atenció al trauma greu!",
+      },
       acreditados: {
         title:
-          "1a EDICIÓ TALLERS MULTIDISCIPLINARS D'HABILITATS EN ATENCIÓ PACIENT GREU",
+          "2a EDICIÓ TALLERS MULTIDISCIPLINARS D'HABILITATS EN ATENCIÓ PACIENT GREU",
         description:
           'Aprén amb el teu equip i aconseguix els teus crèdits oficials',
       },

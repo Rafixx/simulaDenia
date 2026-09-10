@@ -30,6 +30,49 @@
       }
     ]
   },
+  "SECCIÓN TRAUMA GRAVE": {
+    "Descripción": "Aprenderás cómo inmovilizar a un paciente con trauma grave y realizar la transferencia a la camilla. Podrás aprender los criterios de triaje para activación del Código Trauma, así como la transferencia de información entre equipos.",
+    "DISPOSITIVOS DE INMOVILIZACIÓN TRAUMA GRAVE": [
+      {
+        "Title": "DISPOSITIVOS DE INMOVILIZACIÓN TRAUMA GRAVE",
+        "For": "Profesionales urgencias",
+        "Date": "29 septiembre 2026",
+        "Link": "https://www.inscribirme.com/dispositivosdeinmovilizaciontraumagrave1"
+      },
+      {
+        "Title": "DISPOSITIVOS DE INMOVILIZACIÓN TRAUMA GRAVE",
+        "For": "Profesionales urgencias",
+        "Date": "3 noviembre 2026",
+        "Link": "https://www.inscribirme.com/dispositivosdeinmovilizaciontraumagrave2"
+      },
+      {
+        "Title": "DISPOSITIVOS DE INMOVILIZACIÓN TRAUMA GRAVE",
+        "For": "Profesionales urgencias",
+        "Date": "15 diciembre 2026",
+        "Link": "https://www.inscribirme.com/dispositivosdeinmovilizaciontraumagrave3"
+      }
+    ],
+    "TRIAJE Y TRANSFERENCIA INFORMACIÓN TRAUMA GRAVE": [
+      {
+        "Title": "TRIAJE Y TRANSFERENCIA INFORMACIÓN TRAUMA GRAVE",
+        "For": "Profesionales urgencias",
+        "Date": "22 septiembre 2026",
+        "Link": "https://www.inscribirme.com/triajeytransferenciadeinformacionentraumagrave1"
+      },
+      {
+        "Title": "TRIAJE Y TRANSFERENCIA INFORMACIÓN TRAUMA GRAVE",
+        "For": "Profesionales urgencias",
+        "Date": "10 noviembre 2026",
+        "Link": "https://www.inscribirme.com/triajeytransferenciadeinformacionentraumagrave2"
+      },
+      {
+        "Title": "TRIAJE Y TRANSFERENCIA INFORMACIÓN TRAUMA GRAVE",
+        "For": "Profesionales urgencias",
+        "Date": "22 diciembre 2026",
+        "Link": "https://www.inscribirme.com/triajeytransferenciadeinformacionentraumagrave3"
+      }
+    ]
+  },
   "SECCIÓN TALLERES ACREDITADOS": {
     "Descripción": "Os ofrecemos 5 talleres de habilidades dirigidos a TCAEs, enfermeros/as, médicos/as y residentes/estudiantes de urgencias. Son talleres prácticos, basados en casos simulados. ¿Cuándo? de 16:00-18:00 horas, fuera del horario laboral. Hay plazas reservadas para cada categoría profesional. ¡Te esperamos!",
     "TALLER TAQUIARRITMIAS": [

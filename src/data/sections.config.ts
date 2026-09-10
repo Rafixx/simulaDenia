@@ -9,9 +9,17 @@ export function getSections(): SectionMeta[] {
       key: "rcp",
       title: t.sections.rcp.title,
       description: t.sections.rcp.description,
-      imageUrl: "/1-verano.webp",
+      imageUrl: "/1-original.webp",
       dataKey: "SECCIÓN RCP",
       icon: "heart"
+    },
+    {
+      key: "traumaGrave",
+      title: t.sections.traumaGrave.title,
+      description: t.sections.traumaGrave.description,
+      imageUrl: "/3.webp",
+      dataKey: "SECCIÓN TRAUMA GRAVE",
+      icon: "activity"
     },
     {
       key: "acreditados",

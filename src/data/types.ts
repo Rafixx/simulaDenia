@@ -17,13 +17,14 @@ export type SectionWithGroups = {
 
 export type CoursesData = {
   "SECCIÓN RCP": SectionFlat;
+  "SECCIÓN TRAUMA GRAVE": SectionWithGroups;
   "SECCIÓN TALLERES ACREDITADOS": SectionWithGroups;
   "SECCIÓN TALLERES": SectionFlat;
   "SECCIÓN TALLERES ENFERMERÍA": SectionWithGroups;
 };
 
 export type SectionMeta = {
-  key: "rcp" | "acreditados" | "talleres" | "enfermeria" | "info";
+  key: "rcp" | "traumaGrave" | "acreditados" | "talleres" | "enfermeria" | "info";
   title: string;
   description: string;
   imageUrl: string;
