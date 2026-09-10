@@ -31,4 +31,5 @@ export type SectionMeta = {
   imageUrl: string;
   dataKey?: keyof CoursesData; // ausente en "info"
   icon: string; // nombre del icono lucide o id de SVG inline
+  schedule?: "laboral" | "fueraLaboral"; // ausente en "info"
 };

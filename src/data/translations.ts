@@ -57,6 +57,12 @@ export interface Translation {
     plural: string;
   };
 
+  // Pill de horario en la cabecera de sección
+  scheduleBadge: {
+    laboral: string;
+    fueraLaboral: string;
+  };
+
   // Labels de cursos
   courseLabels: {
     title: string;
@@ -127,6 +133,11 @@ export const translations: Record<Language, Translation> = {
       plural: 'ediciones',
     },
 
+    scheduleBadge: {
+      laboral: 'Horario laboral',
+      fueraLaboral: 'Fuera de horario laboral',
+    },
+
     courseLabels: {
       title: 'Curso',
       for: 'Dirigido a:',
@@ -195,6 +206,11 @@ export const translations: Record<Language, Translation> = {
     courseCount: {
       singular: 'edició',
       plural: 'edicions',
+    },
+
+    scheduleBadge: {
+      laboral: 'Horari laboral',
+      fueraLaboral: "Fora d'horari laboral",
     },
 
     courseLabels: {

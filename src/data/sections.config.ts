@@ -11,7 +11,8 @@ export function getSections(): SectionMeta[] {
       description: t.sections.rcp.description,
       imageUrl: "/1-original.webp",
       dataKey: "SECCIÓN RCP",
-      icon: "heart"
+      icon: "heart",
+      schedule: "laboral"
     },
     {
       key: "traumaGrave",
@@ -19,7 +20,8 @@ export function getSections(): SectionMeta[] {
       description: t.sections.traumaGrave.description,
       imageUrl: "/10.webp",
       dataKey: "SECCIÓN TRAUMA GRAVE",
-      icon: "activity"
+      icon: "activity",
+      schedule: "laboral"
     },
     {
       key: "acreditados",
@@ -27,7 +29,8 @@ export function getSections(): SectionMeta[] {
       description: t.sections.acreditados.description,
       imageUrl: "/2.webp",
       dataKey: "SECCIÓN TALLERES ACREDITADOS",
-      icon: "award"
+      icon: "award",
+      schedule: "fueraLaboral"
     },
     {
       key: "talleres",
@@ -35,7 +38,8 @@ export function getSections(): SectionMeta[] {
       description: t.sections.talleres.description,
       imageUrl: "/7.webp",
       dataKey: "SECCIÓN TALLERES",
-      icon: "book"
+      icon: "book",
+      schedule: "fueraLaboral"
     },
     {
       key: "enfermeria",
@@ -43,7 +47,8 @@ export function getSections(): SectionMeta[] {
       description: t.sections.enfermeria.description,
       imageUrl: "/8.webp",
       dataKey: "SECCIÓN TALLERES ENFERMERÍA",
-      icon: "user"
+      icon: "user",
+      schedule: "fueraLaboral"
     },
     {
       key: "viaAereaURG",
@@ -51,7 +56,8 @@ export function getSections(): SectionMeta[] {
       description: t.sections.viaAereaURG.description,
       imageUrl: "/11.webp",
       dataKey: "SECCIÓN VÍA AÉREA URGENCIAS",
-      icon: "wind"
+      icon: "wind",
+      schedule: "fueraLaboral"
     }
   ];
 }
