@@ -70,12 +70,12 @@ export const translations: Record<Language, Translation> = {
     sections: {
       rcp: {
         title: 'ENTRENAMIENTO DE EQUIPOS EN RCP',
-        description: 'Aprende con tu equipo la RCP con casos simulados',
+        description: '¡Practica la RCP!',
       },
       acreditados: {
         title:
-          '1ª EDICIÓN TALLERES MULTIDISCIPLINARES DE HABILIDADES EN ATENCIÓN PACIENTE GRAVE',
-        description: 'Aprende con tu equipo y consigue tus créditos oficiales',
+          '2ª EDICIÓN TALLERES MULTIDISCIPLINARES DE HABILIDADES EN ATENCIÓN PACIENTE GRAVE',
+        description: '¡Entrena con tu equipo la atención al paciente crítico!',
       },
       talleres: {
         title: 'ECOGRAFÍA EN URGENCIAS',
