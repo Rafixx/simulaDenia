@@ -44,6 +44,14 @@ export function getSections(): SectionMeta[] {
       imageUrl: "/8.webp",
       dataKey: "SECCIÓN TALLERES ENFERMERÍA",
       icon: "user"
+    },
+    {
+      key: "viaAereaURG",
+      title: t.sections.viaAereaURG.title,
+      description: t.sections.viaAereaURG.description,
+      imageUrl: "/11.webp",
+      dataKey: "SECCIÓN VÍA AÉREA URGENCIAS",
+      icon: "wind"
     }
   ];
 }

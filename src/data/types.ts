@@ -21,10 +21,11 @@ export type CoursesData = {
   "SECCIÓN TALLERES ACREDITADOS": SectionWithGroups;
   "SECCIÓN TALLERES": SectionFlat;
   "SECCIÓN TALLERES ENFERMERÍA": SectionWithGroups;
+  "SECCIÓN VÍA AÉREA URGENCIAS": SectionWithGroups;
 };
 
 export type SectionMeta = {
-  key: "rcp" | "traumaGrave" | "acreditados" | "talleres" | "enfermeria" | "info";
+  key: "rcp" | "traumaGrave" | "acreditados" | "talleres" | "enfermeria" | "viaAereaURG" | "info";
   title: string;
   description: string;
   imageUrl: string;

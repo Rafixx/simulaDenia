@@ -32,6 +32,10 @@ export interface Translation {
       title: string;
       description: string;
     };
+    viaAereaURG: {
+      title: string;
+      description: string;
+    };
     info: {
       title: string;
       description: string;
@@ -92,6 +96,10 @@ export const translations: Record<Language, Translation> = {
       enfermeria: {
         title: 'TALLERES ESPECÍFICOS TCAEs y ENFERMERÍA',
         description: 'Aprende, repasa y mejora tus técnicas de enfermería',
+      },
+      viaAereaURG: {
+        title: 'VÍA AÉREA EN URGENCIAS',
+        description: '¿Quieres mejorar tus habilidades en vía aérea?',
       },
       info: {
         title: 'Información',
@@ -158,6 +166,10 @@ export const translations: Record<Language, Translation> = {
         title: 'TALLERS ESPECÍFICS TCAEs i INFERMERIA',
         description:
           "Aprén, repassa i millora les teues tècniques d'infermeria",
+      },
+      viaAereaURG: {
+        title: 'VIA AÈRIA EN URGÈNCIES',
+        description: 'Vols millorar les teues habilitats en via aèria?',
       },
       info: {
         title: 'Informació',

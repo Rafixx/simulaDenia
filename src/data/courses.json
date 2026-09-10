@@ -139,5 +139,18 @@
         "Link": "https://www.inscribirme.com/tallerenfermeriaviaintraoseayviaperifericaecoguiada4"
       }
     ]
+  },
+  "SECCIÓN VÍA AÉREA URGENCIAS": {
+    "Descripción": "Dirigido a TCAEs, enfermeros/as, médicos/as y residentes. Aprenderás a preparar el material, realizar las técnicas básicas y colocar dispositivos supraglóticos. Tendrás la oportunidad de entrenar el manejo de vía aérea avanzada y la secuencia rápida de intubación con casos simulados con equipos interprofesionales.",
+    "VÍA AÉREA BÁSICA": [
+      {
+        "Title": "VÍA AÉREA BÁSICA",
+        "For": "Profesionales enfermería urgencias",
+        "Date": "1 diciembre 2026",
+        "Link": "https://www.inscribirme.com/tallerviaaereabasica1"
+      }
+    ],
+    "VÍA AÉREA AVANZADA": [
+    ]
   }
 }
