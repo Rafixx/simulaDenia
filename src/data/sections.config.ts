@@ -17,7 +17,7 @@ export function getSections(): SectionMeta[] {
       key: "traumaGrave",
       title: t.sections.traumaGrave.title,
       description: t.sections.traumaGrave.description,
-      imageUrl: "/3.webp",
+      imageUrl: "/10.webp",
       dataKey: "SECCIÓN TRAUMA GRAVE",
       icon: "activity"
     },
